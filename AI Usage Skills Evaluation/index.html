@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Time Tracker — Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>AI-Powered Time Tracker</h1>
+      <p class="subtitle">Log your day, analyse your time, improve your flow.</p>
+
+      <div class="auth-grid">
+        <div class="auth-form">
+          <h2>Login</h2>
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter email" />
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" />
+          <button id="loginBtn" class="btn primary">Login</button>
+
+          <div class="divider"><span>or</span></div>
+
+          <h2>Sign up</h2>
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter email" />
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Enter password" />
+          <button id="signupBtn" class="btn">Create account</button>
+
+          <button id="googleBtn" class="btn google">Continue with Google</button>
+        </div>
+
+        <div class="auth-info">
+          <ul class="features">
+            <li><strong>Clean flow:</strong> Login → Add Activities → Analyse → View Dashboard</li>
+            <li><strong>Validation:</strong> Total minutes per day ≤ 1440</li>
+            <li><strong>Visuals:</strong> Pie/Bar chart per category</li>
+            <li><strong>No data view:</strong> Friendly illustration & CTA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
