@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup - Modular App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </main>
+
+    <footer></footer>
+    <script type="module" src="js/main.js"></script>
+    <script type="module">
+        // Page-specific logic: Signup
+        import { signup } from './js/auth.js';
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+
+            if (signup(username, password)) {
+                alert('Signup successful! Please log in.');
+                window.location.href = 'login.html'; // Redirect to Login page
+            } else {
+                alert('Signup failed. Username may already exist.');
+            }
+        });
+    </script>
+</body>
+</html>

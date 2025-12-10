@@ -1,0 +1,228 @@
+/* 1. Global Reset and Variables */
+:root {
+    --primary-color: #007bff; /* Blue for primary actions/branding */
+    --secondary-color: #6c757d; /* Gray for secondary elements */
+    --background-color: #f8f9fa; /* Light gray background */
+    --surface-color: #ffffff; /* White for card/container backgrounds */
+    --border-color: #dee2e6;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+
+    --font-family-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --max-width: 1200px;
+    --padding-base: 20px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    color: #343a40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 2. Typography */
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: var(--padding-base);
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* 3. Layout Structure (Header, Main, Footer) */
+
+header {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 15px var(--padding-base);
+}
+
+nav h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links a, #logout-btn {
+    color: var(--surface-color);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover, #logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#logout-btn {
+    background: none;
+    border: 1px solid var(--surface-color);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+main {
+    flex-grow: 1; /* Ensures main takes up available space */
+    max-width: var(--max-width);
+    width: 100%;
+    margin: var(--padding-base) auto;
+    padding: var(--padding-base);
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+footer {
+    background-color: #343a40;
+    color: #adb5bd;
+    text-align: center;
+    padding: 15px var(--padding-base);
+    font-size: 0.85rem;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* 4. Form Styling (Login/Signup) */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: var(--padding-base);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* 5. Todos Page Specific Styling */
+
+#todos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--padding-base);
+}
+
+.todo-item {
+    background-color: var(--background-color);
+    padding: 15px;
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.todo-item.completed {
+    border-left-color: var(--success-color);
+    opacity: 0.85; /* Slightly fade completed items */
+}
+
+.todo-item p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.todo-item.completed p:last-child {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* 6. Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav h1 {
+        margin-bottom: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a, #logout-btn {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    main {
+        padding: 10px;
+        margin: 10px auto;
+    }
+    
+    #todos-container {
+        grid-template-columns: 1fr; /* Stack todos vertically on small screens */
+    }
+}

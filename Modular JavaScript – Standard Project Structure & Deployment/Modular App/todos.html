@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos - Modular App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Minimal styling for todos for better readability */
+        .todo-item { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .todo-item.completed { background-color: #e6ffe6; border-left: 5px solid green; }
+    </style>
+</head>
+<body>
+    <header></header>
+
+    <main>
+        <h2>Your To-Do List</h2>
+        <div id="todos-container">
+            <p>Loading todos...</p>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script type="module" src="js/main.js"></script>
+    <script type="module">
+        // Page-specific logic: Todos
+        import { protectRoute } from './js/main.js';
+        import displayTodos from './js/displayTodos.js';
+
+        // 1. Route Protection Check
+        protectRoute('todos.html');
+
+        // 2. Fetch and Display Todos
+        const fetchTodos = async () => {
+            const url = 'https://jsonplaceholder.typicode.com/todos';
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const todos = await response.json();
+                
+                // Use the imported displayTodos function
+                displayTodos(todos); 
+            } catch (error) {
+                console.error('Failed to fetch todos:', error);
+                document.getElementById('todos-container').innerHTML = 
+                    '<p style="color: red;">Error loading todos. Please check the console.</p>';
+            }
+        };
+
+        // Ensure protection check runs before fetching data
+        if (protectRoute('todos.html') !== false) {
+            fetchTodos();
+        }
+
+    </script>
+</body>
+</html>
