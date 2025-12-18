@@ -1,0 +1,160 @@
+/* Custom Fonts and Reset */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0f172a;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-secondary: #94a3b8;
+  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* Advanced Mesh Gradient Background */
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Glassmorphism Card Container */
+.counter-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  padding: 50px 40px;
+  border-radius: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 380px;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.counter-card:hover {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Header/Status Styling */
+.counter-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  transition: var(--transition-smooth);
+}
+
+.counter-header p {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* The Main Counter Number */
+.counter-display {
+  font-size: 8rem;
+  font-weight: 800;
+  margin: 10px 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: -4px;
+  transition: var(--transition-smooth);
+}
+
+/* Button Group Layout */
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+  gap: 15px;
+}
+
+/* Interactive Control Buttons */
+.btn-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-increment, .btn-decrement {
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.btn-increment:hover {
+  background: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.btn-decrement:hover {
+  background: #f43f5e;
+  border-color: #f43f5e;
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.4);
+  transform: scale(1.1) rotate(-90deg);
+}
+
+.btn-reset {
+  padding: 12px 25px;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.btn-reset:hover {
+  background: white;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* Decorative Background Glow */
+.counter-card::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
