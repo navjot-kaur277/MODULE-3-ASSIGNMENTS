@@ -1,16 +1,23 @@
-# React + Vite
+# React Conditional Styling Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional, high-fidelity React application demonstrating state management and dynamic UI updates. This project toggles a component's theme between "Red" and "Blue" states using modern React hooks and CSS best practices.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **State-Driven UI**: Uses `useState` to manage component behavior.
+- **Dynamic Styling**: Implements conditional `className` logic for theme switching.
+- **Premium UX**: Includes smooth CSS transitions, glassmorphism button effects, and tactile rotation transforms.
+- **Responsive Design**: Fully centered layout using Flexbox that works on all screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technical Implementation
+As per the task requirements, the project achieves the following:
+- **Initial State**: The component renders in a "Red" state by default.
+- **Toggle Logic**: A button allows the user to switch seamlessly between Red and Blue modes.
+- **Boolean Logic**: The state is stored as a boolean, driving the conditional logic for both text and styles.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Project Structure
+```text
+src/
+├── App.jsx        # Main component logic and conditional rendering
+├── App.css        # Professional component-level styling
+├── index.css      # Global resets and theme variables
+└── main.jsx       # Application entry point
