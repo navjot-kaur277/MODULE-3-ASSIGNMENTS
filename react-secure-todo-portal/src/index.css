@@ -1,0 +1,194 @@
+:root {
+  /* Background remains the same */
+  --bg-gradient: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+  
+  /* New Card Colors (Dark Theme for Cards) */
+  --card-bg: #1e2746;
+  --text-main: #ffffff;
+  --text-secondary: #a0aec0;
+  
+  /* Accents */
+  --accent: #ff4757;
+  --input-bg: #2d3753;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Card Styling (Dark Navy) --- */
+.card {
+  width: 100%;
+  max-width: 500px; /* Slightly wider for Login/Home */
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: var(--text-main);
+  transition: transform 0.3s ease;
+}
+
+/* --- Dashboard Specific Width --- */
+.dashboard-card {
+  max-width: 1000px;
+}
+
+/* Headings - INCREASED SIZE */
+.card h1 {
+  font-size: 2.8rem; /* Bigger for Welcome */
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.card h2 {
+  font-size: 2.2rem; /* Bigger for Admin Login */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Inputs --- */
+input {
+  width: 100%;
+  padding: 18px 20px; /* Larger padding */
+  margin-bottom: 20px;
+  background: var(--input-bg);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  background: #36405e;
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.2);
+}
+
+input::placeholder {
+  color: #6c7a9c;
+}
+
+/* --- Buttons --- */
+button {
+  width: 100%;
+  padding: 18px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px -10px rgba(255, 71, 87, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background: #e84118;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(255, 71, 87, 0.7);
+}
+
+/* --- Dashboard Grid System --- */
+.todo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--input-bg); /* Matches input color */
+  border: 1px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.list-item:hover {
+  background: #36405e;
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.task-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-right: 15px;
+}
+
+/* --- Status Badges --- */
+.status { padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.completed { background: #2ed573; color: #000; }
+.pending { background: #ffa502; color: #000; }
+
+/* --- Navbar / Header --- */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.nav-btn {
+  width: auto;
+  padding: 10px 30px;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: none;
+  font-size: 1rem;
+}
+
+.nav-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.error {
+  color: #ff4757;
+  background: rgba(255, 71, 87, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
